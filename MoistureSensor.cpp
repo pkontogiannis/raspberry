@@ -19,17 +19,17 @@ void loop() {
     int moisture_level = analogRead(sensor_pin);
     int moisture = map(moisture_level, max_value, min_value, 0, 100);
     if (moisture < low_value) {
-        Serial.print("Low (");
+        Serial.print("{\"level\": \"Low\", \"value\":\"");
         Serial.print(moisture);
-        Serial.println(")%");
+        Serial.println("\"}");
     } else if (moisture < medium_value){
-        Serial.print("Medium (");
+        Serial.print("{\"level\": \"Medium\", \"value\":\"");
         Serial.print(moisture);
-        Serial.println(")%");
+        Serial.println("\"}");
     } else {
-        Serial.print("High (");
+        Serial.print("{\"level\": \"High\", \"value\":\"");
         Serial.print(moisture);
-        Serial.println(")%");
+        Serial.println("\"}");
     }
     delay(500);
 }
